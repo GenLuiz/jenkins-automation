@@ -3,17 +3,23 @@ exports.config = {
 
   output: './output',
 
+  services: ['docker'],
+
   helpers: {
     WebDriver: {
       url: 'http://facebook.com',
-      browser: 'chrome',
-      desiredCapabilities: {
-        chromeOptions:{
-          args: ['--headless', '--disable-gpu', '----window-size=800,600']
-        }
-      }
+      browser: 'chrome'
     }
   },
+
+  dockerOptions: {
+    image: 'selenium/standalone-chrome',
+    healthCheck: 'http://localhost:4444',
+    options: {
+        p: ['4444:4444'],
+        shmSize: '2g'
+    }
+},
 
   include: {
     I: './steps_file.js'
