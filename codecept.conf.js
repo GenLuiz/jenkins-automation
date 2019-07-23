@@ -27,13 +27,6 @@ exports.config = {
 
   bootstrap: null,
   mocha: {},
-  name: 'jenkins-automation',
-
-  plugins:{
-    wdio: {
-      enabled: true,
-      services: ['selenium-standalone']
-    }
-  }
+  name: 'jenkins-automation'
   
 }
